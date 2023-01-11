@@ -20,6 +20,6 @@ publish='{
   "repo": "'$publishRepo'"
 }'
 # 设置包相关信息
-sed -i 's/<productName>/'$productName'/g' ./package.json
-sed -i 's/<publisherName>/'$publisherName'/g' ./package.json
-sed -i 's/"<publish>"/'$publish'/g' ./package.json
+sed -i 's/\<productName\>/'$productName'/g' ./package.json
+sed -i 's/\<publisherName\>/'$publisherName'/g' ./package.json
+sed -i 's/"\<publish\>"/'$publish'/g' ./package.json
