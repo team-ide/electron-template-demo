@@ -16,14 +16,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - run: |
-          git clone https://github.com/team-ide/electron-template
-          rm -rf electron-template/.git
-
-      - run: |
-          chmod +x replace.sh
-          ./replace.sh
-
       # 读取发布版本
       - name: Read Release Version
         id: release_version
@@ -57,6 +49,15 @@ jobs:
           body: ${{steps.release_body.outputs.content}}
           draft: true # 是否是草稿
           prerelease: false # 是否是预发布
+
+      # 准备 electron-template
+      - run: |
+          git clone https://github.com/team-ide/electron-template
+          rm -rf electron-template/.git
+
+      - run: |
+          chmod +x replace.sh
+          ./replace.sh
 
       # 上传共享资源
       - uses: actions/upload-artifact@v2
