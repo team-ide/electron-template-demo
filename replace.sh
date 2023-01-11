@@ -11,10 +11,10 @@ echo 'cp config.ts'
 cp -rf config.ts electron-template/src/main/config.ts
 
 productName='ElectronTemplateDemo'
-publisherName='yourName'
+publisherName='ZhuLiang'
 publishProvider='github'
-publishOwner='githubOwner'
-publishRepo='githubRepo'
+publishOwner='team-ide'
+publishRepo='electron-template-demo'
 
 echo 'set productName='$productName
 echo 'set publisherName='$publisherName
