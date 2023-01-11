@@ -24,10 +24,10 @@ echo 'set publishRepo='$publishRepo
 
 # 设置包相关信息
 echo 'replace productName'
-sed -i 's/\<productName\>/'$productName'/g' ./electron-template/package.json
+sed -i 's/<productName>/'$productName'/g' ./electron-template/package.json
 echo 'replace publisherName'
-sed -i 's/\<publisherName\>/'$publisherName'/g' ./electron-template/package.json
+sed -i 's/<publisherName>/'$publisherName'/g' ./electron-template/package.json
 echo 'replace publish'
-sed -i 's/"\<publish\>"/{"provider": "'$publishProvider'","owner": "'$publishOwner'","repo": "'$publishRepo'"}/g' ./electron-template/package.json
+sed -i 's/"<publish>"/{"provider": "'$publishProvider'","owner": "'$publishOwner'","repo": "'$publishRepo'"}/g' ./electron-template/package.json
 
 cat ./electron-template/package.json
