@@ -18,12 +18,8 @@ jobs:
 
       # 准备 electron-template
       - run: |
-          git clone https://github.com/team-ide/electron-template
-          rm -rf electron-template/.git
-
-      - run: |
-          chmod +x replace.sh
-          ./replace.sh
+          chmod +x install-electron-template.sh
+          ./install-electron-template.sh
 
       # 读取发布版本
       - name: Read Release Version
