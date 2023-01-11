@@ -1,0 +1,5 @@
+{
+  "name": "electron-template-demo",
+  "version": "1.0.0",
+  "main": "./dist/main/main.js"
+}
