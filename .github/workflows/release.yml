@@ -29,12 +29,12 @@ jobs:
         id: release_version
         uses: ashley-taylor/read-json-property-action@v1.0
         with:
-          path: release/app/package.json
+          path: package.json
           property: version
 
       - id: release_check
         run: |
-          echo "::set-output name=RELEASE_STATUS::$(curl -I -m 10 -o /dev/null -s -w %{http_code} https://github.com/team-ide/electron-template/releases/tag/v${{ steps.release_version.outputs.value }})"
+          echo "::set-output name=RELEASE_STATUS::$(curl -I -m 10 -o /dev/null -s -w %{http_code} https://github.com/team-ide/electron-template-demo/releases/tag/v${{ steps.release_version.outputs.value }})"
 
       # 读取发布说明
       - name: Read Release Description
