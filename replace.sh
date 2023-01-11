@@ -16,18 +16,11 @@ publishProvider='github'
 publishOwner='githubOwner'
 publishRepo='githubRepo'
 
-publish='{
-  "provider": "'$publishProvider'",
-  "owner": "'$publishOwner'",
-  "repo": "'$publishRepo'"
-}'
-
 echo 'set productName='$productName
 echo 'set publisherName='$publisherName
 echo 'set publishProvider='$publishProvider
 echo 'set publishOwner='$publishOwner
 echo 'set publishRepo='$publishRepo
-echo 'set publish='$publish
 
 # 设置包相关信息
 echo 'replace productName'
@@ -35,4 +28,6 @@ sed -i 's/\<productName\>/'$productName'/g' ./electron-template/package.json
 echo 'replace publisherName'
 sed -i 's/\<publisherName\>/'$publisherName'/g' ./electron-template/package.json
 echo 'replace publish'
-sed -i 's/"\<publish\>"/'$publish'/g' ./electron-template/package.json
+sed -i 's/"\<publish\>"/{"provider": "'$publishProvider'","owner": "'$publishOwner'","repo": "'$publishRepo'"}/g' ./electron-template/package.json
+
+cat ./electron-template/package.json
