@@ -19,24 +19,8 @@ jobs:
       - run: |
           git clone https://github.com/team-ide/electron-template
           rm -rf electron-template/.git
-          cp -rf package.json electron-template/release/app/package.json
-          cp -rf config.ts electron-template/src/main/config.ts
-          
-          productName='ElectronTemplateDemo'
-          publisherName='yourName'
-          publishProvider='github'
-          publishOwner='githubOwner'
-          publishRepo='githubRepo'
-        
-          publish='{
-            "provider": "'$publishProvider'",
-            "owner": "'$publishOwner'",
-            "repo": "'$publishRepo'"
-          }'
-          # 设置包相关信息
-          sed -i 's/<productName>/'$productName'/g' ./package.json
-          sed -i 's/<publisherName>/'$publisherName'/g' ./package.json
-          sed -i 's/"<publish>"/'$publish'/g' ./package.json
+          chmod +x replace.sh
+          ./replace.sh
 
       # 读取发布版本
       - name: Read Release Version
