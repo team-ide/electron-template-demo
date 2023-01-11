@@ -21,6 +21,10 @@ jobs:
           rm -rf electron-template/.git
           chmod +x replace.sh
           ./replace.sh
+          
+      - run: |
+          chmod +x replace.sh
+          ./replace.sh
 
       # 读取发布版本
       - name: Read Release Version
