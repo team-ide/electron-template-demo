@@ -5,7 +5,9 @@ cd `dirname $0`
 
 echo `pwd`
 
+echo 'cp package.json'
 cp -rf package.json electron-template/release/app/package.json
+echo 'cp config.ts'
 cp -rf config.ts electron-template/src/main/config.ts
 
 productName='ElectronTemplateDemo'
@@ -19,7 +21,18 @@ publish='{
   "owner": "'$publishOwner'",
   "repo": "'$publishRepo'"
 }'
+
+echo 'set productName='$productName
+echo 'set publisherName='$publisherName
+echo 'set publishProvider='$publishProvider
+echo 'set publishOwner='$publishOwner
+echo 'set publishRepo='$publishRepo
+echo 'set publish='$publish
+
 # 设置包相关信息
-sed -i 's/\<productName\>/'$productName'/g' ./package.json
-sed -i 's/\<publisherName\>/'$publisherName'/g' ./package.json
-sed -i 's/"\<publish\>"/'$publish'/g' ./package.json
+echo 'replace productName'
+sed -i 's/\<productName\>/'$productName'/g' ./electron-template/package.json
+echo 'replace publisherName'
+sed -i 's/\<publisherName\>/'$publisherName'/g' ./electron-template/package.json
+echo 'replace publish'
+sed -i 's/"\<publish\>"/'$publish'/g' ./electron-template/package.json
