@@ -19,9 +19,7 @@ jobs:
       - run: |
           git clone https://github.com/team-ide/electron-template
           rm -rf electron-template/.git
-          chmod +x replace.sh
-          ./replace.sh
-          
+
       - run: |
           chmod +x replace.sh
           ./replace.sh
