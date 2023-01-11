@@ -6,6 +6,11 @@ cd `dirname $0`
 echo `pwd`
 
 templateDir=./electron-template
+# 安装 electron-template
+
+git clone https://github.com/team-ide/electron-template
+rm -rf $templateDir/.git
+
 # 复制 应用信息 package.json 到 release/app
 echo 'cp package.json'
 cp -rf package.json $templateDir/release/app/package.json
